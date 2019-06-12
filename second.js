@@ -28,3 +28,26 @@ Output Format
 
 Return an integer array of the results of all queries in order.
 */
+
+const matchingStrings = (inpStr, queStr) => {
+    const queStrMap = {};
+    const arrRes = [];
+
+    for (let el of queStr) {
+        queStrMap[el] = 0;
+    }
+
+    for (let el of inpStr) {
+        if (queStrMap[el] >= 0) {
+            queStrMap[el]++;
+        }
+    }
+
+    for (let el of queStr) {
+        arrRes.push(queStrMap[el]);
+    }
+
+    return arrRes;
+};
+
+console.log(matchingStrings(["ab", "ab", "abc"], ["ab", "abc", "bc"]));
