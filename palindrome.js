@@ -1,19 +1,17 @@
 function convertToValidStr(str) {
     const validChars = "abcdefghijklmnopqrstuvwxyz";
+    const strLower = str.toLowerCase();
     let validStr = "";
-    for (let c of str.toLowerCase()) {
+    for (let c of strLower) {
         if (validChars.includes(c)) {
             validStr += c;
         }
     }
-    return validStr
+    return validStr;
 }
 
 function isPalindrome(str) {
     const validStr = convertToValidStr(str);
-
-    ////////////////////////////////////////////////////
-
     let i = 0;
     while (i < validStr.length / 2) {
         if (validStr[i] !== validStr[validStr.length - 1 - i]) {
@@ -22,16 +20,6 @@ function isPalindrome(str) {
         i++;
     }
     return true;
-
-    ////////////////////////////////////////////////////
-
-    // return validStr === validStr.split("").reverse().join("");
-
-    ////////////////////////////////////////////////////
 }
-
-/**
- *          TEST
- *****************************************************/
 
 console.log(isPalindrome("Race Car"));

@@ -1,23 +1,19 @@
-function maxSumMinSum(arr) {
-    ////////////////////////////////////////////////////
-
-    arr.sort();
-
-    if (arr.length === 0) {
-        console.log("empty array");
-    } else if (arr.length === 1) {
-        return [arr[0], arr[0]];
-    } else {
-        return [arr[0] + arr[1], arr[arr.length - 2] + arr[arr.length - 1]];
+export function maxSumMinSum(arr) {
+    if (!Array.isArray(arr)) {
+        return "invalid argument type";
     }
-
-    ////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////
-
+    if (arr.length === 0) {
+        return "Empty array";
+    }
+    const sortedArr = arr.slice().sort((a, b) => a - b);
+    if (sortedArr.length === 1) {
+        return [sortedArr[0], sortedArr[0]];
+    } else {
+        return [
+            sortedArr[0] + sortedArr[1],
+            sortedArr[sortedArr.length - 2] + sortedArr[sortedArr.length - 1]
+        ];
+    }
 }
-
-/**
- *          TEST
- *****************************************************/
 
 console.log(maxSumMinSum([3]));
